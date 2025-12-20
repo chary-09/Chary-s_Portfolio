@@ -55,7 +55,7 @@
                 <!-- Profile Card -->
                 <div class="bento-card profile-card fade-in-up">
                     <div class="profile-img-container">
-                        <img src="my profile photo .jpg"
+                        <img src="D:\sonu collage\personal portfolio testing\my profile photo .jpg"
                             alt="Bhanu prasad chary profile" width="140px" height="140px">
                     </div>
                     <h3>Bhanu prasad chary</h3>
@@ -244,11 +244,21 @@
         <!-- Projects Section -->
         <section class="section-container" id="projects">
             <h2 class="section-header">My <span class="white-text">Projects</span></h2>
+
+            <!-- Project Filters -->
+            <div class="project-filters fade-in-up">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="#">UI/UX</button>
+                <button class="filter-btn" data-filter="#">Web Dev</button>
+                <button class="filter-btn" data-filter="#">Python</button>
+                <button class="filter-btn" data-filter="#">AI/ML</button>                
+           </div>
+
             <div class="grid-2-col">
 
                 <!-- Project 1 -->
 
-                <div class="bento-card project-card fade-in-up">
+                <div class="bento-card project-card fade-in-up" data-category="web">
                     <div class="project-header">
                         <div class="project-icon"><i class="fa-solid fa-code"></i></div>
                         <div class="project-links">
@@ -266,7 +276,7 @@
 
                 <!-- Project 2 -->
 
-                <div class="bento-card project-card fade-in-up delay-1">
+                <div class="bento-card project-card fade-in-up" data-category="python">
                     <div class="project-header">
                         <div class="project-icon"><i class="fa-solid fa-mouse-pointer"></i></div>
                         <div class="project-links">
@@ -432,10 +442,31 @@
                 this.classList.add('active');
             });
         });
+        // Project Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.classList.remove('hide');
+                        card.classList.add('fade-in-up');
+                    } else {
+                        card.classList.add('hide');
+                        card.classList.remove('fade-in-up');
+                    }
+                });
+            });
+        });
     </script>
 </body>
 
-
 </html>
-
-
