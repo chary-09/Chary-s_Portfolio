@@ -201,7 +201,7 @@ h3 {
 
 /* Hero Section */
 .hero-section {
-    min-height: 60vh;
+    min-height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -692,6 +692,48 @@ h3 {
     transform: scale(1.2);
 }
 
+/* Project Filters */
+.project-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: var(--bg-card);
+    color: var(--text-muted);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font-main);
+    transition: var(--transition);
+}
+
+.filter-btn:hover {
+    background: var(--bg-card-secondary);
+    color: var(--text-main);
+    transform: translateY(-2px);
+    border-color: var(--accent-color);
+}
+
+.filter-btn.active {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+/* Hide helper class */
+.project-card.hide {
+    display: none;
+}
+
+
 /* Github Analytics */
 .analytics-card {
     padding: 3rem;
@@ -897,6 +939,7 @@ h3 {
 
 .form-header i {
     font-size: 1.5rem;
+
 }
 
 .form-header h2 {
@@ -1093,5 +1136,4 @@ h3 {
         font-size: 2rem;
         margin: 4rem 0 2rem;
     }
-
 }
